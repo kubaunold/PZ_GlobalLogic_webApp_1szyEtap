@@ -22,9 +22,7 @@ namespace SensorMobCRUD.Controllers
             //ViewBag.measurments = db.Measurments.ToList();
             ViewBag.Title = "Put yr page title here";
             ViewBag.Description = "Put your page description here";
-            ViewBag.Measurments = "Hi Kuba, its your ViewBag.Measurments!";
             ViewBag.Measurments = db.Measurments.ToList();
-
             return View();
         }
 

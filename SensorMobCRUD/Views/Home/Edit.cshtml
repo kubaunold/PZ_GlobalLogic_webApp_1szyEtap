@@ -8,35 +8,52 @@
 
 <form method="post" asp-controller="measurment" asp-action="edit">
     <table>
-       
+
         <tr>
-            <td>Name</td>
+            <td>sensorId</td>
             <td>
-                <input type="text" asp-for="Name" required="required" />
+                <input type="number" asp-for="sensorId" required="required" readonly />
             </td>
         </tr>
         <tr>
-            <td>Price</td>
+            <td>pm_1_0</td>
             <td>
-                <input type="number" asp-for="Price" min="0" required="required" />
+                <input type="number" asp-for="pm_1_0" min="0" required="required" />
             </td>
         </tr>
         <tr>
-            <td>Quantity</td>
+            <td>pm_2_5</td>
             <td>
-                <input type="number" asp-for="Quantity" min="0" required="required" />
+                <input type="number" asp-for="pm_2_5" min="0" required="required" />
             </td>
         </tr>
         <tr>
-            <td>Status</td>
+            <td>pm_10</td>
             <td>
-                <input type="checkbox" asp-for="Status" />
+                <input type="number" asp-for="pm_10" min="0" required="required" />
             </td>
         </tr>
+        <tr>
+            <td>Temperature</td>
+            <td>
+                <input type="number" asp-for="temp" min="-50" max="50" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td>
+                <input type="number" asp-for="hum" min="0" max="100" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td>Time of the measurment</td>
+            <td>
+                <input type="datetime-local" asp-for="time" value="2020-15-05 19:30" min="0008-06-07 00:00" max="9999-06-14 00:00" required="required" />
+            </td>
         <tr>
             <td>&nbsp;</td>
             <td>
-                
+
                 <input type="hidden" asp-for="Id" />
                 <input type="submit" value="Save" />
             </td>

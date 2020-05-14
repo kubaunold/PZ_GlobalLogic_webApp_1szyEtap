@@ -1,36 +1,43 @@
 ﻿@{
     ViewData["Title"] = "Main table of Measurments";
 }
-
+@*"" cellpadding="3" cellspacing="20"*@
+@*border: 1px solid black; table-layout: auto;*@
 
 <h1>@ViewBag.Title</h1>
 
 <a asp-controller="measurment" asp-action="add">Add Measurment</a>
-<table border="1" cellpadding="2" cellspacing="2">
+<table border ="1" align="center" table-layout="auto">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th text-align="center">ID</th>     @*this text align won't work :(*@
+        <th align="center">Sensor ID</th="center">
+        <th align="center">Pm_1_0</th>
+        <th align="center">Pm_2_5</th>
+        <th align="center">Pm_10</th>
+        <th align="center">Temperature</th>
+        <th align="center">Humidity</th>
+        <th text-align="center">Time</th>
+        <th align="center">Action</th>
     </tr>
     @foreach (var measurment in ViewBag.measurments)
-        {
-            <tr>
-                <td>@measurment.Id</td>
-                <td>@measurment.Name</td>
-                <td>@measurment.Price</td>
-                <td>@measurment.Quantity</td>
-                <td>@measurment.Status</td>
-                <td>
-                    <a asp-controller="measurment" asp-action="edit" asp-route-id="@measurment.Id" >Edit</a> 
-                    or
-                    <a asp-controller="measurment" asp-action="delete" asp-route-id="@measurment.Id" onclick="return confirm('Are you sure?')">Delete</a>
-                </td>
-            </tr>
+    {
+        <tr>
+            <td>@measurment.Id</td>
+            <td>@measurment.sensorId</td>
+            <td>@measurment.pm_1_0</td>
+            <td>@measurment.pm_2_5</td>
+            <td>@measurment.pm_10</td>
+            <td>@measurment.temp</td>
+            <td>@measurment.hum</td>
+            <td>@measurment.time</td>
+            <td>
+                <a asp-controller="measurment" asp-action="edit" asp-route-id="@measurment.Id">Edit</a>
+                or
+                <a asp-controller="measurment" asp-action="delete" asp-route-id="@measurment.Id" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
 
-        }
+    }
 </table>
 
 
