@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SensorMobCRUD.Models;
 
 namespace SensorMobCRUD.Controllers
@@ -11,7 +12,11 @@ namespace SensorMobCRUD.Controllers
     [Route("measurment")]
     public class HomeController : Controller
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db;//= new DataContext();
+        public HomeController(DataContext context)
+        {
+            db = context;
+        }
 
         [Route("")]
         [Route("index")]
@@ -25,6 +30,13 @@ namespace SensorMobCRUD.Controllers
             ViewBag.Measurments = db.Measurments.ToList();
             return View();
         }
+
+        public async Task<IActionResult> ReturnMeasurements(int? id)
+        {
+            var gL_Sensors_v0_2Context = db.Measurments.Include(o => o.sensorId).Where(e => e.sensorId == id);
+            return View(await gL_Sensors_v0_2Context.ToListAsync());
+        }
+
 
         [HttpGet]
         [Route("Add")]

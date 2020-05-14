@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SensorMobCRUD.Models.Measurment>
+
+@{
+    ViewData["Title"] = "ReturnMeasurements";
+}
+
+<h2>ReturnMeasurements</h2>
+
+
+<table border="1" align="center" table-layout="auto">
+    <tr>
+        <th text-align="center">ID</th>     @*this text align won't work :(*@
+        <th align="center">Sensor ID</th>
+        <th align="center">Pm_1_0</th>
+        <th align="center">Pm_2_5</th>
+        <th align="center">Pm_10</th>
+        <th align="center">Temperature</th>
+        <th align="center">Humidity</th>
+        <th text-align="center">Time</th>
+        <th align="center">Action</th>
+    </tr>
+    @foreach (var measurment in ViewBag.measurments)
+    {
+        <tr>
+            <td>@measurment.Id</td>
+            <td>@measurment.sensorId</td>
+            <td>@measurment.pm_1_0</td>
+            <td>@measurment.pm_2_5</td>
+            <td>@measurment.pm_10</td>
+            <td>@measurment.temp</td>
+            <td>@measurment.hum</td>
+            <td>@measurment.time</td>
+            
+        </tr>
+
+    }
+</table>
