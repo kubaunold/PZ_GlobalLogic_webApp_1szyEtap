@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SensorMobCRUD.Models
 {
-
+    // version with db created locally, on xampp
     public class DataContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -18,4 +18,6 @@ namespace SensorMobCRUD.Models
         public DbSet<Measurment> Measurments { get; set; }
 
     }
+
+
 }

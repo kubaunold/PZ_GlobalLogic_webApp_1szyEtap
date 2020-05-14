@@ -23,8 +23,7 @@ namespace SensorMobCRUD.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
-            //ViewBag.
-            //ViewBag.measurments = db.Measurments.ToList();
+
             ViewBag.Title = "Put yr page title here";
             ViewBag.Description = "Put your page description here";
             ViewBag.Measurments = db.Measurments.ToList();
