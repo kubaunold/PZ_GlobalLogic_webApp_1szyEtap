@@ -36,7 +36,7 @@ namespace SensorMobCRUD.Controllers
             return View(await gL_Sensors_v0_2Context.ToListAsync());
         }
 
-
+        //razdwatrzy
         [HttpGet]
         [Route("Add")]
         public IActionResult Add()
