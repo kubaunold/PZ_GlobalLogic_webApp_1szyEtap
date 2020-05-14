@@ -18,6 +18,14 @@ namespace SensorMobCRUD.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
+            //--------------SECTION TO TEST WITH C# DB------------------
+            var m = new Measurment() { hum = 15 };
+            using (var db = new DataContext())
+            {
+                db.Measurments.Add(m);
+                db.SaveChanges();
+            }
+            //----------------------------------------------------------
             //ViewBag.
             //ViewBag.measurments = db.Measurments.ToList();
             ViewBag.Title = "Put yr page title here";
